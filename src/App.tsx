@@ -21,13 +21,11 @@ function App() {
   const [newText, setNewText] = useState<string>("");
 
   useEffect(() => {
-    BuscarInfo();
+    if(lista.length === 0) BuscarInfo();
     RenderDeLista();
   }, [lista])
 
   const RenderDeLista = () => {
-    if (lista && lista.length === 0) return;
-
     if (alfabetico === "AZ") OrdenAZ();
     else if (alfabetico === "ZA") OrdenZA();
   }
@@ -42,10 +40,12 @@ function App() {
 
   const OrdenAZ = () => {
     if (lista.length > 0) setListaRender(lista.sort((a, b) => a.localeCompare(b)));
+    else setListaRender([]);
   }
 
   const OrdenZA = () => {
     if (lista.length > 0) setListaRender(lista.sort((a, b) => a.localeCompare(b)).reverse());
+    else setListaRender([]);
   }
 
   function removerCaracteresEspeciales(string: string) {
@@ -67,7 +67,7 @@ function App() {
 
   const AgregarFile = () => {
     if (nombreReten.length === 0) return;
-    const nuevaLista = [...nombreReten, ...lista];
+    const nuevaLista = [...nombreReten.map(n => removerCaracteresEspeciales(n)), ...lista];
     localStorage.setItem('Lista', JSON.stringify(nuevaLista));
     setLista(nuevaLista);
     setNombreReten([]);
@@ -93,7 +93,7 @@ function App() {
 
   const AgregarManul = () => {
     const nuevaLista: string[] = [...lista]
-    nuevaLista.push(newText)
+    nuevaLista.push(removerCaracteresEspeciales(newText))
     localStorage.setItem('Lista', JSON.stringify(nuevaLista));
     setLista(nuevaLista);
     setNewText("");
