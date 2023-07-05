@@ -150,7 +150,7 @@ function App() {
             <Delete />
           </button>
         </span>
-        <form className='h-[60vh] md:h-[50vh] w-full md:w-[70%] gap-10 md:rounded-md bg-zinc-200 flex flex-col md:flex-row items-center justify-center'>
+        <form className='h-[400px] md:h-[50vh] w-full md:w-[70%] gap-10 md:rounded-md bg-zinc-200 flex flex-col md:flex-row items-center justify-center' onSubmit={e => e.preventDefault()}>
           <div className='w-full h-[40%] p-5 md:h-full md:w-[50%] flex flex-col justify-center md:justify-around items-center gap-5'>
             <h4 className='text-2xl text-center'>Manual</h4>
             <div className='flex flex-col w-[80%] p-2 gap-5 items-center'>
@@ -186,7 +186,7 @@ function App() {
           w-full 
           flex flex-col justify-center items-center`}
       >
-        <h1 className={`${vista ? "text-[50px] md:text-[100px]" : "text-[35px] md:text-[50px]"} duration-700 text-center font-extrabold`}>Encuentra Rápido</h1>
+        <h1 className={`${vista ? "text-[50px] md:text-[100px]" : "text-[35px] md:text-[50px]"} duration-700 text-center font-extrabold px-5`}>Encuentra Rápido</h1>
         <p className={`${vista ? "opacity-0 md:opacity-100" : "-z-1 top-[-100vh] absolute opacity-0"} max-w-[70vw] pt-10 text-center text-clip text-[20px]`}>Descubre una búsqueda increíblemente fácil y eficiente. Tú proporcionas las palabras y nosotros nos encargamos del resto. Nuestra búsqueda dinámica organiza y ordena las listas por ti, creando una experiencia fluida y sin complicaciones.</p>
       </header>
       <main className={`${vista ? "h-[20vh] items-center" : "h-[8vh] p-0 md:p-5 md:h-[15vh]"} w-full
@@ -197,7 +197,7 @@ function App() {
           <label className="font-bold">Click aqui para comenzar!</label>
           <ManoParaAbajo />
         </div>
-        <form className='min-w-[80%] md:min-w-[600px] h-auto flex justify-around'>
+        <form className='min-w-[80%] md:min-w-[600px] h-auto flex justify-around' onSubmit={e => e.preventDefault()}>
           <input
             type="text"
             value={busqueda}
@@ -224,13 +224,13 @@ function App() {
             <FlechaParaAbajo />
           </button>
         </div>
-        <form className={`${!setting ? "h-0 absolute top-[-100vh] opacity-0" : "h-auto opacity-100"} py-4 w-[90%] flex flex-col items-center border border-dashed border-black`}>
+        <form className={`${!setting ? "h-0 absolute top-[-100vh] opacity-0" : "h-auto opacity-100"} py-4 w-[90%] flex flex-col items-center border border-dashed border-black`} onSubmit={e => e.preventDefault()}>
           <h4 className='text-xl'>Funciones de Lista</h4>
           <div className='py-2 w-full flex justify-center items-center'>
             <button type="button" className='hover:opacity-70 flex justify-center items-center gap-2 p-2 bg-transparent border border-black rounded-lg w-[70%]' onClick={e => { e.preventDefault(); MostrarAgregar() }}>Agregar <Plus /></button>
           </div>
         </form>
-        <form className={`${!setting ? "h-0 absolute top-[-100vh] opacity-0" : "h-auto opacity-100"} py-4 w-[90%] flex flex-col items-center border border-dashed border-black`}>
+        <form className={`${!setting ? "h-0 absolute top-[-100vh] opacity-0" : "h-auto opacity-100"} py-4 w-[90%] flex flex-col items-center border border-dashed border-black`} onSubmit={e => e.preventDefault()}>
           <h4 className='text-xl'>Orden de Lista</h4>
           <h5 className='text-xl'>Alfabetico</h5>
           <div className='py-2 w-full flex justify-center items-center'>
@@ -245,7 +245,7 @@ function App() {
               onChange={e => { setAlfabetico(e.target.id); OrdenZA() }} />
           </div>
         </form>
-        <form className={`${!setting ? "h-0 absolute top-[-100vh] opacity-0" : "h-auto opacity-100"} py-4 w-[90%] flex flex-col items-center border border-dashed border-black`}>
+        <form className={`${!setting ? "h-0 absolute top-[-100vh] opacity-0" : "h-auto opacity-100"} py-4 w-[90%] flex flex-col items-center border border-dashed border-black`} onSubmit={e => e.preventDefault()}>
           <button className='w-[90%] bg-red-600 text-xl p-2 rounded-md hover:opacity-70' onClick={e => { e.preventDefault(); RemoveAll(); }}>
             Eliminar Todo
           </button>
